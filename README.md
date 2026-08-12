@@ -54,6 +54,16 @@ Original input files are never modified.
 When processing multiple files, each output file uses the original filename.
 Input files therefore must not result in duplicate output filenames.
 
+### Processing a Directory
+
+To process every `.txt` file in a directory using the same replacement set:
+
+```bash
+python src/main.py \
+    -i scanner-test-cases \
+    --replacement-file replacements.txt \
+    -o project-scanner-test-case
+
 ## Testing
 
 Run the automated tests with:
