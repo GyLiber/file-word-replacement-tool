@@ -69,6 +69,18 @@ def main() -> int:
         if not input_path.is_file():
             parser.error(f"input file does not exist: {input_path}")
 
+    output_paths: set[Path] = set()
+
+    for input_path in args.files:
+        output_path = args.output_dir / input_path.name
+
+        if output_path in output_paths:
+            parser.error(
+                f"multiple input files produce the same output: {output_path}"
+            )
+
+        output_paths.add(output_path)
+
     for input_path in args.files:
         output_path = args.output_dir / input_path.name
 
