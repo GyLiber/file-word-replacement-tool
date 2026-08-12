@@ -116,13 +116,25 @@ implementation if required by the chosen command-line interface.
 No database, framework, service, or other infrastructure shall be introduced
 unless it provides a clear benefit to the stated requirements.
 
+Replacement pairs are supplied using `SOURCE=TARGET` syntax and are applied
+sequentially in the order supplied.
+
+Replacement is literal string replacement; replacement values are not treated
+as regular expressions.
+
+When multiple input files are processed, each output file retains the input
+filename and is written directly into the specified output directory.
+Therefore input files in a single invocation must not produce duplicate output
+filenames.
+
 ## 6. Technology
 
-The implementation language shall be selected during repository
-initialization based on the fastest path to a small, portable, maintainable
-command-line application.
+The application is implemented in Python 3.10+ using the Python standard
+library.
 
-Dependencies shall be kept to the minimum necessary.
+Pytest is used as a development-time testing dependency.
+
+No runtime third-party dependencies are required.
 
 ## 7. v1.0.0 Success Criteria
 
